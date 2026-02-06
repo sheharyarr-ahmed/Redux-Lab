@@ -35,7 +35,7 @@ function reducer(state = initialState, action) {
 
 const store = createStore(reducer);
 
-store.dispatch({ type: "account/deposit", payload: 500 });
+// store.dispatch({ type: "account/deposit", payload: 500 });
 console.log(store.getState());
 store.dispatch({ type: "account/withdraw", payload: 100 });
 console.log(store.getState());
@@ -45,4 +45,15 @@ store.dispatch({
 });
 console.log(store.getState());
 store.dispatch({ type: "account/payLoan" });
+console.log(store.getState());
+
+// another way of creating the dispatch functions that is action creators
+
+function deposit(amount) {
+  return { type: "account/deposit", payload: amount };
+}
+
+store.dispatch(deposit(1000));
+console.log(store.getState());
+store.dispatch(deposit(1000));
 console.log(store.getState());
