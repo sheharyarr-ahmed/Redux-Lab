@@ -56,6 +56,7 @@ function customerReducer(state = initialStateCustomer, action) {
   }
 }
 
+// the concept of the combine reducers: when there are more than one states then this is how we use redux reducer
 const rootReducer = combineReducers({
   account: accountReducer,
   customer: customerReducer,
